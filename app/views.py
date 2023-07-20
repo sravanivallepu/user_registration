@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.core.mail import send_mail
 # Create your views here.
 from app.forms import *
 def registration(request):
@@ -17,6 +17,10 @@ def registration(request):
             NSPO=pfd.save(commit=False)
             NSPO.username=NSUO
             NSPO.save()
+
+            send_mail('Registration',"Succesfully Registration is Done",'vallepusravani9705@gmail.com',[NSUO.email],fail_silently=False)
+
+
             return HttpResponse('Regsitration is Susssessfull')
         else:
             return HttpResponse('Not valid')
