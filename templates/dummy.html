@@ -10,8 +10,17 @@
 {% block title %}
     <title>Hello, world!</title>
 {% endblock%}
+
+<style>
+    body {
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    </style>
   </head>
-  <body>
+  <body id="bg" style="background-image: url('../media/pic2.jpg')";> 
+    >
     <center>
         <nav class="nav" style="background-color:black">
         <a href="{% url 'admin:index' %}" class="nav-link text-white">Admin-Page</a>
