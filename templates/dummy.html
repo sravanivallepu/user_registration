@@ -26,12 +26,16 @@
         <a href="{% url 'admin:index' %}" class="nav-link text-white">Admin-Page</a>
         <a href="{% url 'registration' %}" class="nav-link text-white">Registration</a>
         <a href="{% url 'home' %}" class="nav-link text-white">Home</a>
+
         {% if user.is_authenticated %}
             <a href="{% url 'display_profile' %}" class="nav-link text-white">display_profile</a>
             <a href="{% url 'change_password' %}" class="nav-link text-white">change_password</a>
             <a href="{% url 'user_logout' %}" class="nav-link text-white">user_logout</a>
+
         {% else %} 
             <a href="{% url 'user_login' %}" class="nav-link text-white">user_login</a>
+            <a href="{% url 'forgot_password' %}" class="nav-link text-white">forgot_password</a>
+
         {% endif %}
         </nav>
 

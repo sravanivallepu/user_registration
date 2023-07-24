@@ -75,3 +75,17 @@ def change_password(request):
         UO.save()
         return HttpResponse('Password is Changed successfully')
     return render(request,'change_password.html')
+
+def forgot_password(request):
+    if request.method=='POST':
+        username=request.POST['username']
+        pw=request.POST['pw']
+        LUO=User.objects.filter(username=username)
+        if LUO:
+            UO=LUO[0]
+            UO.set_password(pw)
+            UO.save()
+            return HttpResponse('Password reset is done')
+        else:
+            return HttpResponse('Username is not valid')
+    return render(request,'forgot_password.html')
